@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career News Feed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4F46E5',
+                        'secondary': '#7C3AED',
+                        'accent': '#06B6D4'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .trending-pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-3xl font-bold mb-2">Career News Feed</h1>
+            <p class="text-blue-100">Stay ahead with personalized career insights</p>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="bg-white shadow-sm border-b">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex space-x-8 overflow-x-auto">
+                <button class="tab-btn active py-4 px-2 border-b-2 border-primary text-primary font-medium whitespace-nowrap" data-category="trending">
+                    🔥 Trending
+                </button>
+                <button class="tab-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium whitespace-nowrap" data-category="tech">
+                    💻 Tech
+                </button>
+                <button class="tab-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium whitespace-nowrap" data-category="business">
+                    📊 Business
+                </button>
+                <button class="tab-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 font-medium whitespace-nowrap" data-category="startups">
+                    🚀 Startups
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        <!-- Pinned Headlines -->
+        <section class="mb-8">
+            <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                📌 Pinned Headlines
+            </h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <article class="bg-gradient-to-r from-primary to-secondary text-white rounded-xl p-6 card-hover cursor-pointer">
+                    <div class="flex items-start justify-between mb-3">
+                        <span class="bg-white bg-opacity-20 text-xs px-2 py-1 rounded-full">PINNED</span>
+                        <span class="text-blue-100 text-sm">2 hours ago</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">AI Revolution: 50% of Jobs Will Transform by 2025</h3>
+                    <p class="text-blue-100 mb-4">Industry leaders discuss the massive shift in job requirements and new opportunities emerging...</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-blue-100">TechCrunch</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-white bg-opacity-20 text-xs px-2 py-1 rounded-full">#AI</span>
+                            <span class="bg-white bg-opacity-20 text-xs px-2 py-1 rounded-full">#Future</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="bg-gradient-to-r from-accent to-blue-500 text-white rounded-xl p-6 card-hover cursor-pointer">
+                    <div class="flex items-start justify-between mb-3">
+                        <span class="bg-white bg-opacity-20 text-xs px-2 py-1 rounded-full">PINNED</span>
+                        <span class="text-blue-100 text-sm">4 hours ago</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Remote Work Policies: What's Changing in 2024</h3>
+                    <p class="text-blue-100 mb-4">Major companies announce new hybrid work models affecting millions of professionals...</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-blue-100">Harvard Business Review</span>
+                        <div class="flex space-x-2">
+                            <span class="bg-white bg-opacity-20 text-xs px-2 py-1 rounded-full">#Remote</span>
+                            <span class="bg-white bg-opacity-20 text-xs px-2 py-1 rounded-full">#Policy</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Must-Read Daily Highlight -->
+        <section class="mb-8">
+            <div class="bg-gradient-to-r from-yellow-400 to-orange-500 rounded-xl p-6 text-white">
+                <div class="flex items-center mb-3">
+                    <span class="bg-white bg-opacity-20 text-sm px-3 py-1 rounded-full font-medium">⭐ Must-Read Today</span>
+                    <span class="ml-auto text-sm opacity-90">Personalized for Software Engineering</span>
+                </div>
+                <h3 class="text-2xl font-bold mb-3">The Complete Guide to System Design Interviews</h3>
+                <p class="text-yellow-100 mb-4">Master the most challenging part of tech interviews with real examples from FAANG companies. This comprehensive guide covers scalability, databases, and architecture patterns...</p>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <span class="text-sm">Engineering Daily</span>
+                        <span class="text-sm">📖 15 min read</span>
+                        <span class="text-sm">👁️ 12.5k views</span>
+                    </div>
+                    <div class="flex space-x-2">
+                        <button class="bg-white bg-opacity-20 hover:bg-opacity-30 px-3 py-1 rounded-full text-sm transition-colors">
+                            🔖 Save
+                        </button>
+                        <button class="bg-white bg-opacity-20 hover:bg-opacity-30 px-3 py-1 rounded-full text-sm transition-colors">
+                            📤 Share
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Feed -->
+        <section>
+            <h2 class="text-xl font-bold text-gray-800 mb-6 flex items-center">
+                <span id="category-title">🔥 Trending News</span>
+                <span class="ml-auto text-sm text-gray-500 font-normal">Updated 5 minutes ago</span>
+            </h2>
+            
+            <div id="news-grid" class="grid lg:grid-cols-2 gap-6">
+                <!-- News cards will be populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const newsData = {
+            trending: [
+                {
+                    headline: "Meta Announces 10,000 New AI Jobs Across Global Offices",
+                    source: "Reuters",
+                    date: "1 hour ago",
+                    snippet: "The tech giant plans to hire specialists in machine learning, data science, and AI ethics as part of its metaverse expansion strategy...",
+                    tags: ["#AI", "#Jobs"],
+                    trending: true,
+                    views: "8.2k",
+                    thumbnail: "🤖"
+                },
+                {
+                    headline: "Salary Transparency Laws Drive 23% Increase in Applications",
+                    source: "Wall Street Journal",
+                    date: "3 hours ago",
+                    snippet: "New research shows how pay transparency requirements are reshaping recruitment and employee expectations across industries...",
+                    tags: ["#Salary", "#Transparency"],
+                    trending: true,
+                    views: "5.7k",
+                    thumbnail: "💰"
+                },
+                {
+                    headline: "LinkedIn Launches AI-Powered Career Coach Feature",
+                    source: "TechCrunch",
+                    date: "5 hours ago",
+                    snippet: "The professional network introduces personalized career guidance using advanced AI to help users navigate career transitions...",
+                    tags: ["#LinkedIn", "#AI", "#Career"],
+                    trending: false,
+                    views: "3.1k",
+                    thumbnail: "🎯"
+                },
+                {
+                    headline: "4-Day Work Week Trials Show 97% Success Rate",
+                    source: "BBC Business",
+                    date: "6 hours ago",
+                    snippet: "Global pilot program results reveal improved productivity and employee satisfaction across 100+ participating companies...",
+                    tags: ["#WorkLife", "#Productivity"],
+                    trending: false,
+                    views: "9.4k",
+                    thumbnail: "📅"
+                }
+            ],
+            tech: [
+                {
+                    headline: "Google Unveils New Programming Language for Quantum Computing",
+                    source: "Wired",
+                    date: "2 hours ago",
+                    snippet: "Cirq 2.0 promises to make quantum programming more accessible to traditional software developers...",
+                    tags: ["#Quantum", "#Programming"],
+                    trending: true,
+                    views: "4.3k",
+                    thumbnail: "⚛️"
+                },
+                {
+                    headline: "Apple's Vision Pro Creates New Job Category: Spatial Designers",
+                    source: "The Verge",
+                    date: "4 hours ago",
+                    snippet: "Companies rush to hire specialists who can create immersive 3D experiences for the new mixed reality platform...",
+                    tags: ["#Apple", "#VR", "#Design"],
+                    trending: false,
+                    views: "6.8k",
+                    thumbnail: "🥽"
+                }
+            ],
+            business: [
+                {
+                    headline: "Fortune 500 CEOs Predict Skills Gap Will Worsen by 2025",
+                    source: "Fortune",
+                    date: "1 hour ago",
+                    snippet: "Annual survey reveals growing concern about talent shortage in critical areas like cybersecurity and data analysis...",
+                    tags: ["#Skills", "#Leadership"],
+                    trending: true,
+                    views: "7.1k",
+                    thumbnail: "📈"
+                },
+                {
+                    headline: "ESG Roles See 300% Growth in Job Postings This Quarter",
+                    source: "Bloomberg",
+                    date: "7 hours ago",
+                    snippet: "Environmental, social, and governance positions become mainstream as companies prioritize sustainability...",
+                    tags: ["#ESG", "#Sustainability"],
+                    trending: false,
+                    views: "2.9k",
+                    thumbnail: "🌱"
+                }
+            ],
+            startups: [
+                {
+                    headline: "Y Combinator Batch Focuses 40% on AI-First Companies",
+                    source: "TechCrunch",
+                    date: "3 hours ago",
+                    snippet: "Latest cohort shows unprecedented concentration in artificial intelligence startups across various industries...",
+                    tags: ["#YCombinator", "#AI", "#Startup"],
+                    trending: true,
+                    views: "5.2k",
+                    thumbnail: "🚀"
+                },
+                {
+                    headline: "Fintech Startup Raises $50M to Revolutionize Payroll",
+                    source: "VentureBeat",
+                    date: "8 hours ago",
+                    snippet: "New platform promises real-time salary payments and automated tax optimization for gig economy workers...",
+                    tags: ["#Fintech", "#Payroll"],
+                    trending: false,
+                    views: "1.8k",
+                    thumbnail: "💳"
+                }
+            ]
+        };
+
+        function createNewsCard(article) {
+            const trendingBadge = article.trending ? 
+                '<span class="trending-pulse bg-red-500 text-white text-xs px-2 py-1 rounded-full">🔥 TRENDING</span>' : '';
+            
+            return `
+                <article class="bg-white rounded-xl shadow-sm border card-hover cursor-pointer overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex items-start justify-between mb-3">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-2xl">${article.thumbnail}</span>
+                                ${trendingBadge}
+                            </div>
+                            <span class="text-gray-500 text-sm">${article.date}</span>
+                        </div>
+                        
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 line-clamp-2">${article.headline}</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3">${article.snippet}</p>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-sm font-medium text-gray-700">${article.source}</span>
+                            <div class="flex items-center space-x-3 text-xs text-gray-500">
+                                <span>👁️ ${article.views}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="flex space-x-2">
+                                ${article.tags.map(tag => 
+                                    `<span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">${tag}</span>`
+                                ).join('')}
+                            </div>
+                            <div class="flex space-x-2">
+                                <button class="text-gray-400 hover:text-blue-500 transition-colors p-1" title="Bookmark">
+                                    🔖
+                                </button>
+                                <button class="text-gray-400 hover:text-blue-500 transition-colors p-1" title="Share">
+                                    📤
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        function renderNews(category) {
+            const newsGrid = document.getElementById('news-grid');
+            const categoryTitle = document.getElementById('category-title');
+            
+            const categoryEmojis = {
+                trending: '🔥 Trending News',
+                tech: '💻 Tech News',
+                business: '📊 Business News',
+                startups: '🚀 Startup News'
+            };
+            
+            categoryTitle.textContent = categoryEmojis[category];
+            
+            const articles = newsData[category] || [];
+            newsGrid.innerHTML = articles.map(createNewsCard).join('');
+        }
+
+        // Tab functionality
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all tabs
+                document.querySelectorAll('.tab-btn').forEach(tab => {
+                    tab.classList.remove('active', 'border-primary', 'text-primary');
+                    tab.classList.add('border-transparent', 'text-gray-500');
+                });
+                
+                // Add active class to clicked tab
+                btn.classList.add('active', 'border-primary', 'text-primary');
+                btn.classList.remove('border-transparent', 'text-gray-500');
+                
+                // Render news for selected category
+                const category = btn.dataset.category;
+                renderNews(category);
+            });
+        });
+
+        // Initialize with trending news
+        renderNews('trending');
+
+        // Add click handlers for bookmark and share buttons
+        document.addEventListener('click', (e) => {
+            if (e.target.title === 'Bookmark') {
+                e.stopPropagation();
+                e.target.style.color = '#3B82F6';
+                e.target.textContent = '🔖';
+            } else if (e.target.title === 'Share') {
+                e.stopPropagation();
+                e.target.style.color = '#10B981';
+                // Could implement actual sharing functionality here
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9729dca8c6f131e7',t:'MTc1NTc3NjQ5My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
